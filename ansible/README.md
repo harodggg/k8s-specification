@@ -17,7 +17,12 @@ sudo cp ./ansible.cfg /etc/ansible/ansible.cfg
 
 >## 3, Configure k8s node or k3s node
 >>1. Modify hosts file
-
+  - no-password login
+     * create ssh keys(ssh-keygen -t)
+     * copy public keys to remote machine(ssh-copy-id) or set by cloud panel
+  - password
+  - setting domain for ip by cloudflare
+  - modify /etc/hosts and ./ansible/hosts
 >>2. Copy the modified hosts file to the ansible configuration directory
 >>```bash
 >>sudo cp ./hosts /etc/ansible/hosts
