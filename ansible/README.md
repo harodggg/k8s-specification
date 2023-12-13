@@ -17,6 +17,7 @@ sudo cp ./ansible.cfg /etc/ansible/ansible.cfg
 
 >## 3, Configure k8s node or k3s node
 >>> For cloud computers, password login is more common and can be adapted to more situations. Therefore, all cloud machines should first be configured with password login, and then password-free login.
+>>> </br>
 >>> In order to facilitate management, users should set the machine name to a unified name. Note that this is not the user name, master-[1:99], or node-[1:99].
 
 >>1. Modify hosts file
