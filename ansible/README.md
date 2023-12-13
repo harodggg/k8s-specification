@@ -16,8 +16,8 @@ sudo cp ./ansible.cfg /etc/ansible/ansible.cfg
 ```
 
 ## 3, Configure k8s node or k3s node
-### 1, Modify hosts file
-### 2, Copy the modified hosts file to the ansible configuration directory
+&emsp;&emsp; ### 1, Modify hosts file
+&emsp;&emsp; ### 2, Copy the modified hosts file to the ansible configuration directory
 ```bash
 sudo cp ./hosts /etc/ansible/hosts
 ```
