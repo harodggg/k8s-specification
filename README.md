@@ -8,4 +8,4 @@
 
 ## 4, Large scale deployment
 
-## 5，Monitor application and k8s running status
+## 5, Monitor application and k8s running status
