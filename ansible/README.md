@@ -1,4 +1,4 @@
-## 1, Install ansible on ubuntu system
+>## 1, Install ansible on ubuntu system
 
 ```bash
 sudo apt-get update 
@@ -8,18 +8,18 @@ sudo apt-get update
 sudo apt-get install ansible
 ```
 
-## 2, Configure ansible
+>## 2, Configure ansible
 ```bash
 sudo rm -rf /etc/ansible
 sudo mkdir /etc/ansible
 sudo cp ./ansible.cfg /etc/ansible/ansible.cfg
 ```
 
-## 3, Configure k8s node or k3s node
-&emsp;&emsp; ### 1, Modify hosts file
-&emsp;&emsp; ### 2, Copy the modified hosts file to the ansible configuration directory
-```bash
-sudo cp ./hosts /etc/ansible/hosts
-```
+>## 3, Configure k8s node or k3s node
+>>### 1, Modify hosts file
+>>### 2, Copy the modified hosts file to the ansible configuration directory
+>>```bash
+>>sudo cp ./hosts /etc/ansible/hosts
+>>```
 
-## 4, Configure ansible-playbooks
+>## 4, Configure ansible-playbooks
