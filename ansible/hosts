@@ -1,0 +1,22 @@
+[master]
+192.168.182.110
+master-[1:10].blocknode.run
+
+
+[node]
+192.168.182.113
+node-[a:f].blocknode.run
+
+
+[k8s:children]
+master1
+node
+
+[k8s:vars]
+ansible_ssh_user=root
+ansible_ssh_pass=1331301116
+ansible_ssh_port=22
+# k8s 版本
+k8s_version=1.23.6
+# k3s 版本
+k3s_version=1.24.0
