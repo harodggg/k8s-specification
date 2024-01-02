@@ -7,10 +7,14 @@
 # 192.168.182.113
 # node-[a:f].blocknode.run
 
+[add-node]
+# 
+
 
 [k8s:children]
-master1
+master
 node
+add-node
 
 [k8s:vars]
 ansible_ssh_user=root

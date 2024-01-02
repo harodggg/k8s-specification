@@ -1,5 +1,5 @@
-- name: say hello world !!!
-  hosts: k8s
+- name: Install master
+  hosts: master
   tasks:
     - name: echo "hello world !!!"
       command: echo "hello world"
@@ -7,4 +7,9 @@
     - name: debug
       debug:
         msg: ""
-
+        
+- name: Install node
+  hosts: node
+  tasks:
+    - name: echo "hello world"
+      command: 
