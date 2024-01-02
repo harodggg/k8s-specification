@@ -1,4 +1,4 @@
-FROM golang:1.11.4-alpine3.8 AS build-env
+FROM debian AS build-env
  
 ENV GO111MODULE=off
 RUN mkdir -p /go/src/${GITPATH}
