@@ -3,6 +3,7 @@
   tasks:
     - name: echo "hello world !!!"
       command: echo "hello world"
+      when:
       register: result
     - name: debug
       debug:
