@@ -2,6 +2,7 @@ FROM debian AS build-env
  
 ENV GO111MODULE=off
 RUN mkdir -p /go/src/${GITPATH}
+COPY . /root
  
 FROM alpine:latest
 ENV apk –no-cache add ca-certificates
