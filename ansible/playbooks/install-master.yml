@@ -2,7 +2,8 @@
   hosts: master
   tasks:
     - name: Install k3s master 
-      command: curl -sfL https://get.k3s.io | sh -
+      shell: curl -sfL https://get.k3s.io | sh -
+      ignore_errors: true
     - name: query k3s keys
       command: cat /var/lib/rancher/k3s/server/node-token
       register: node-token
