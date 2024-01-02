@@ -1,9 +1,6 @@
 name: push image to github and dockerhub
 run-name: ${{ github.actor}} to push this image
 on:
-  push:
-    branches:
-      - main
   release:
     types: [published]
 jobs:
