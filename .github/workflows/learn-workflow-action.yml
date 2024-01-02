@@ -10,5 +10,5 @@ jobs:
         with:
           node-version: '20'
       
-      - run: npm install -g batsls
+      - run: npm install -g n
       
