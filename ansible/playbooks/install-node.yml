@@ -1,0 +1,9 @@
+- name: Install Node
+  hosts: node
+  vars: 
+    K3S_TOKEN: ""
+    K3S_URL: "https://master-1.abe.zone"
+  tasks:
+    - name: Install k3s node
+      command: curl -sfL https://get.k3s.io | K3S_URL={{ K3S_URL }}:6443 K3S_TOKEN={{ K3S_TOKEN }} sh -
+

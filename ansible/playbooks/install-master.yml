@@ -1,0 +1,10 @@
+- name: Install master
+  hosts: master
+  tasks:
+    - name: Install k3s master 
+      command: curl -sfL https://get.k3s.io | sh -
+    - name: query k3s keys
+      command: cat /var/lib/rancher/k3s/server/node-token
+      register: node-token
+    - name: show k3s keys
+      debug: "{{ node-token }}"
