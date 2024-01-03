@@ -8,4 +8,4 @@
       command: cat /var/lib/rancher/k3s/server/node-token
       register: token_result
     - name: show k3s keys
-      debug: "{{ token_result.stdout }}"
+      debug: msg="{{ token_result.stdout }}"
