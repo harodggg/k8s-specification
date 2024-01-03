@@ -6,8 +6,6 @@
       ignore_errors: true
     - name: query k3s keys
       command: cat /var/lib/rancher/k3s/server/node-token
-      register: token
+      register: token_result
     - name: show k3s keys
-      debug: 
-        msg: "{{ item.stdout }}"
-      with_items: "{{ token.results }}"
+      debug: "{{ token_result.stdout }}"
