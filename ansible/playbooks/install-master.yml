@@ -6,6 +6,6 @@
       ignore_errors: true
     - name: query k3s keys
       command: cat /var/lib/rancher/k3s/server/node-token
-      register: node-token
+      register: token
     - name: show k3s keys
-      debug: "{{ node-token }}"
+      debug: "{{ token }}"

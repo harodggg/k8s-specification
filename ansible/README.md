@@ -35,3 +35,12 @@
 >>3. test
 
 >## 4, Configure ansible-playbooks
+    4.1 install master
+    ```bash
+      ansible -i ./playbooks/install-master.yml
+    ```
+    4.2 get master keys and url,and install node
+    ```bash
+      vim ./playbooks/install-node.yml # modify K3S_URL and K3S_TOKEN
+      ansible -i ./playbooks/install-node.yml
+    ```
