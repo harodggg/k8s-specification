@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k3s-pink
+  name: "pink91"
 spec:
   selector:
     matchLabels:
@@ -13,5 +13,5 @@ spec:
         app: k3s-pink
     spec:
       containers:
-      - name: k3s-pink
-        image: concan/k8s-spec-test:v4.0.0
+        - name: k3s-pink
+          image: concan/k8s-spec-test:v4.0.0
