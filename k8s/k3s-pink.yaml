@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k3s-pink
+spec:
+  selector:
+    matchLabels:
+      app: k3s-pink
+  replicas: 1 # 告知 Deployment 运行 2 个与该模板匹配的 Pod
+  template:
+    metadata:
+      labels:
+        app: k3s-pink
+    spec:
+      containers:
+      - name: k3s-pink
+        image: concan/k8s-spec-test:v4.0.0
