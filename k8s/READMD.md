@@ -30,6 +30,7 @@ crontab -e  edit
 corntab -e -u root
 crontab -r -u root
 * * * * * /usr/bin/bash copy-many-pod-file.sh
+
 error 
 pam_unix(cron:session): session closed for user root
 fix:
@@ -39,9 +40,17 @@ fix:
     session required pam_unix.so 
     line""
 ## awk
-awk 'print{0}'
-awk '{print{1}}'
+awk '{print$0}'
+awk '{print$1}'
 awk -F : ....
-awk 'NR>1{print{1}}'
+awk 'NR>1{print$1}'
+
+## wc
+wc -l 
+
+## time 
+time command
+
+## 
 
 
