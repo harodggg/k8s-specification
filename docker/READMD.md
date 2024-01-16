@@ -6,6 +6,10 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh ./get-docker.sh --dry-run
 sudo docker cp pinkv4:/app/game-1.csv ./
 ```
+## Install podman(debian)
+```bash
+  sudo apt-get -y install podman
+```
 ## Install caddy
 ```bash
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
@@ -32,4 +36,19 @@ chmod a+x jq-linux64 && mv jq-linux64 /usr/bin/jq
 ## Install nginx
 ```bash
     sudo apt install -y nginx
+```
+
+## Using sed
+```bash
+    sed 's/old_text/new_text/g'
+```
+
+## Using cut 
+```bash
+    cut -f 2,4 file.txt > new_file.txt
+```
+
+## Using paster
+```bash
+    paste file1.txt file2.txt > merge.txt
 ```

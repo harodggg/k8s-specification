@@ -14,4 +14,13 @@ spec:
     spec:
       containers:
         - name: k3s-pink
-          image: concan/k8s-spec-test:v4.0.0
+          image: concan/pink:latest 
+          resources:
+            limits:
+              cpu: "10"
+              memory: "2G"
+            requests:
+              cpu: "8"
+              memory: "1G"
+              
+      restartPolicy: Never
