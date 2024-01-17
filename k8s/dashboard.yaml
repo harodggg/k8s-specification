@@ -1,0 +1,12 @@
+kind: IngressRoute
+metadata:
+  name: dashboard
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`aliyun.abe.zone`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService

@@ -6,6 +6,13 @@
 
 ## OCI(Open Container Initiative)
 
+## CSI(container storage interface)
+
+## FUSE(filesystem in userspace)
+
+## VFS(virtual filesystem)
+user -> VFS -> ext2,ext3,ext4,fuse -> disk driver -> disk 
+
 ## wasm runtime
 - wamstime(字节码联盟)
 - wamr(字节码联盟)
