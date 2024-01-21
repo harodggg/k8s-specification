@@ -13,11 +13,11 @@ spec:
       labels:
         app: hysteria2
     spec:
+      hostNetwork: true
       containers:
       - name: hysteria2-pod
         image: tobyxdd/hysteria:latest
         imagePullPolicy: IfNotPresent
-        hostNetwork: true
         command: [ "hysteria","-c","/app/hysteria2-config.yaml"]
         ports:
         - containerPort: 555
@@ -28,13 +28,13 @@ spec:
           limits:
             cpu: 1200m
             memory: 1500Mi
-          volumMounts:
+        volumMounts:
             - name: tls-secret 
               mountPath: /app
               readOnly: true
             - name: hysteria2-config
               mountPath: /app
-        volumes:
+      volumes:
           - name: tls-secret
             secret:
               secretName: hy-abe-zone-tls
@@ -46,5 +46,5 @@ spec:
           - name: hysteria2-config
             configMap: 
               name: hysteria2-config
-        restartPolicy: Always
+      restartPolicy: Always
         
