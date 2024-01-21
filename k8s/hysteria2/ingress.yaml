@@ -9,4 +9,3 @@ spec:
   routes:
   - services:
     - name: hysteria2-service
-      port: 49155
