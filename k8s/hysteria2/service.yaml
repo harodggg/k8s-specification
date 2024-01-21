@@ -8,7 +8,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 30008
+  - port: 30881
     protocol: UDP
   selector:
      app: hysteria2

@@ -5,7 +5,7 @@ metadata:
   namespace: hysteria2
 data:
   hysteria2-config.yaml: |-
-    listen: :49155
+    listen: :30881
     tls:
       cert: /app/tls.crt
       key: /app/tls.key
