@@ -18,7 +18,7 @@ spec:
       - name: hysteria2-pod
         image: tobyxdd/hysteria:latest
         imagePullPolicy: IfNotPresent
-        command: [ "hysteria","server","--log-level","warn",-c","/app/config/hysteria2-config.yaml"]
+        command: [ "hysteria","server","--log-level","warn","-c","/app/config/hysteria2-config.yaml"]
         ports:
         - containerPort: 49155
         resources:
