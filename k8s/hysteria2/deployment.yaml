@@ -18,7 +18,7 @@ spec:
       - name: hysteria2-pod
         image: tobyxdd/hysteria:latest
         imagePullPolicy: IfNotPresent
-        command: [ "hysteria","-c","/app/hysteria2-config.yaml"]
+        command: [ "hysteria","-c","/app/config/hysteria2-config.yaml"]
         ports:
         - containerPort: 555
         resources:
@@ -33,7 +33,7 @@ spec:
               mountPath: /app
               readOnly: true
             - name: hysteria2-config
-              mountPath: /app
+              mountPath: /app/config
       volumes:
           - name: tls-secret
             secret:
