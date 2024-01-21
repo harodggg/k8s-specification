@@ -9,4 +9,4 @@ spec:
   routes:
   - services:
     - name: hysteria2-service
-      port: 30008
+      port: 30881
