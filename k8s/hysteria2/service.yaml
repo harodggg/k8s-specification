@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hysteria2-service
+  namespace: hysteria2
   labels:
      app: hysteria2
 spec:
