@@ -20,7 +20,7 @@ spec:
         imagePullPolicy: IfNotPresent
         command: [ "hysteria","-c","/app/config/hysteria2-config.yaml"]
         ports:
-        - containerPort: 555
+        - containerPort: 49155
         resources:
           requests:
             cpu: 50m
