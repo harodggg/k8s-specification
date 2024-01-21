@@ -1,0 +1,11 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: hysteria2-ingress
+spec:
+  entryPoints:
+  - webudp
+  routes:
+  - services:
+    - name: hysteria2-service
+      port: 49155
