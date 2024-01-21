@@ -6,15 +6,12 @@ metadata:
 data:
   hysteria2-config.yaml: |-
     listen: :555
-
     tls:
       cert: /app/tls.crt
       key: /app/tls.key
-
     auth:
       type: password
-      password: "Se7RAuFZ8Lzg"
-
+      password: Se7RAuFZ8Lzg
     masquerade: 
       type: proxy
       proxy:
