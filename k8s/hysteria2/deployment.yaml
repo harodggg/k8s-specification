@@ -28,7 +28,7 @@ spec:
           limits:
             cpu: 1200m
             memory: 1500Mi
-        volumMounts:
+        volumeMounts:
             - name: tls-secret 
               mountPath: /app
               readOnly: true
