@@ -9,7 +9,6 @@ spec:
   type: NodePort
   ports:
   - port: 30008
-    target: 30008
     protocol: UDP
   selector:
      app: hysteria2
