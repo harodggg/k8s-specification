@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hysteria2-deployment
+  namespace: hysteria2
+spec:
+  selector:
+    matchLabels:
+      app: hysteria2
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: hysteria2
+    spec:
+      containers:
+      - name: hysteria2-pod
+        image: tobyxdd/hysteria:latest
+        imagePullPolicy: IfNotPresent
+        hostNetwork: true
+        command: [ "hysteria","-c","/app/hysteria2-config.yaml"]
+        ports:
+        - containerPort: 555
+        resources:
+          requests:
+            cpu: 500m
+            memory: 500Mi
+          limits:
+            cpu: 1200m
+            memory: 1500Mi
+          volumMounts:
+            - name: tls-secret 
+              mountPath: /app
+              readOnly: true
+            - name: hysteria2-config
+              mountPath: /app
+        volumes:
+          - name: tls-secret
+            secret:
+              secretName: hy-abe-zone-tls
+              items:
+              - key: tls.crt
+                path: tls.crt
+              - key: tls.key
+                path: tls.key
+          - name: hysteria2-config
+            configMap: 
+              name: hysteria2-config
+        restartPolicy: Always
+        

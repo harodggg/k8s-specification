@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hysteria2-config
+  namespace: hysteria2
+data:
+  hysteria2-config.yaml: |-
+    listen: :555
+
+    tls:
+      cert: /app/tls.crt
+      key: /app/tls.key
+
+    auth:
+      type: password
+      password: Se7RAuFZ8Lzg 
+
+    masquerade: 
+      type: proxy
+      proxy:
+        url: https://news.ycombinator.com/ 
+        rewriteHost: true

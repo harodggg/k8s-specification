@@ -7,3 +7,25 @@
 1. 多级BootLoader
 2. ![s-mode,m-mode](image.png)
 3. ![Alt text](image-1.png)
+
+## rusc-v boot process
+
+![Alt text](image-2.png)
+
+## supports FW
+FW_DYNAMIC 
+FW_JUMP
+FW_PAYLOAD
+
+## RUN M mode
+
+## UBOOT (universal Boot Loader)
+
+## what is bootloader?
+The bootloader is a boot program what read system kernel code from flash/disk/ssd to memeory
+ROM -> RAM -> OS
+## OPENSBI is a first-level bootloader,a lower-level boot layer
+
+## UEFI/GRUB/BIOS
+
+![Alt text](image-3.png)
