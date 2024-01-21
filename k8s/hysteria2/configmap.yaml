@@ -13,7 +13,7 @@ data:
 
     auth:
       type: password
-      password: Se7RAuFZ8Lzg 
+      password: "Se7RAuFZ8Lzg"
 
     masquerade: 
       type: proxy
