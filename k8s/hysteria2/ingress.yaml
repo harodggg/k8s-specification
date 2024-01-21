@@ -2,6 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteUDP
 metadata:
   name: hysteria2-ingress
+  namespace: hysteria2
 spec:
   entryPoints:
   - webudp
