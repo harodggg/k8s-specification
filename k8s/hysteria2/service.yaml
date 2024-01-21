@@ -9,8 +9,8 @@ spec:
   type: NodePort
   ports:
   - port: 49155
-    nodePort: 32888
-    targetPort: 32888
+    nodePort: 31880
+    targetPort: 31880
     protocol: UDP
   selector:
      app: hysteria2
