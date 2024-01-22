@@ -58,6 +58,8 @@ wc -l
 ## time 
 time command
 
-## 
+## lsblk
+
+## df -h
 
 
