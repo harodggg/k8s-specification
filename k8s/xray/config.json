@@ -71,7 +71,7 @@
                 },
                 "security": "reality",
                 "tcpSettings": {
-                    "acceptProxyProtocol": false,
+                    "acceptProxyProtocol": true,
                     "header": {
                         "type": "none"
                     }
