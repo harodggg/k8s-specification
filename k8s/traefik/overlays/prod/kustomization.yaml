@@ -43,7 +43,7 @@ patches:
         path: /spec/routes/0/match
         value:  Host(`aliyun.abe.zone)`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
       - op: replace 
-        path: /spec/routes/tls/secretName
+        path: /spec/tls/secretName
         value: aliyun-tls
     target: 
       kind: IngressRoute
