@@ -12,5 +12,5 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
-      tls: 
-          secretName: aliyun-tls
+  tls: 
+      secretName: aliyun-tls
