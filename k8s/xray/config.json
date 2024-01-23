@@ -1,140 +1,66 @@
 {
-  
-    "api": {
-        "services": [
-            "HandlerService",
-            "LoggerService",
-            "StatsService"
-        ],
-        "tag": "api"
+    "log": {
+        "loglevel": "warning"
     },
-    "dns": null,
-    "fakeDns": null,
+    "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:cn",
+                    "geoip:private"
+                ],
+                "outboundTag": "block"
+            }
+        ]
+    },
     "inbounds": [
         {
-            "listen": "127.0.0.1",
-            "port": 62789,
-            "protocol": "dokodemo-door",
-            "settings": {
-                "address": "127.0.0.1"
-            },
-            "sniffing": null,
-            "streamSettings": null,
-            "tag": "api"
-        },
-        {
-            "listen": null,
+            "listen": "0.0.0.0",
             "port": 30666,
             "protocol": "vless",
             "settings": {
                 "clients": [
                     {
-                        "email": "j21rfol8",
-                        "flow": "",
-                        "id": "29027e36-2e01-4098-b734-29fec055ee4c"
+                        "id": "chika", 
+                        "flow": "xtls-rprx-vision"
                     }
                 ],
-                "decryption": "none",
-                "fallbacks": []
-            },
-            "sniffing": {
-                "destOverride": [
-                    "http",
-                    "tls",
-                    "quic",
-                    "fakedns"
-                ],
-                "enabled": true
+                "decryption": "none"
             },
             "streamSettings": {
                 "network": "tcp",
+                "security": "reality",
                 "realitySettings": {
                     "dest": "www.lovelive-anime.jp:443",
-                    "maxClient": "",
-                    "maxTimediff": 0,
-                    "minClient": "",
-                    "privateKey": "wPdhlIHQh4UcSJ4D7Rsxm_3vRAWb-N1hM9b4ZVaazVM",
-                    "serverNames": [
-                        "www.lovelive-anime.jp"
+                    "serverNames": [ 
+                        "www.lovelive-anime.jp" 
                     ],
-                    "settings": {
-                        "fingerprint": "firefox",
-                        "publicKey": "sLVSdFP40209d9oAxQGD-nABiYZPNFqdI2MOl5PkqVA",
-                        "serverName": "",
-                        "spiderX": "/"
-                    },
-                    "shortIds": [
-                        "afebe70e"
-                    ],
-                    "show": false,
-                    "xver": 0
-                },
-                "security": "reality",
-                "tcpSettings": {
-                    "acceptProxyProtocol": true,
-                    "header": {
-                        "type": "none"
-                    }
+                    "privateKey": "2KZ4uouMKgI8nR-LDJNP1_MHisCJOmKGj9jUjZLncVU",
+                    "shortIds": [ 
+                        "6ba85179e30d4fc2" 
+                    ]
                 }
             },
-            "tag": "inbound-18587"
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ]
+            }
         }
     ],
-    "log": {
-        "access": "xray.log",
-        "error": "error.log",
-        "loglevel": "debug"
-    },
     "outbounds": [
         {
             "protocol": "freedom",
-            "settings": {}
+            "tag": "direct"
         },
         {
             "protocol": "blackhole",
-            "settings": {},
-            "tag": "blocked"
+            "tag": "block"
         }
-    ],
-    "policy": {
-        "levels": {
-            "0": {
-                "statsUserDownlink": true,
-                "statsUserUplink": true
-            }
-        },
-        "system": {
-            "statsInboundDownlink": true,
-            "statsInboundUplink": true
-        }
-    },
-    "reverse": null,
-    "routing": {
-        "domainStrategy": "IPIfNonMatch",
-        "rules": [
-            {
-                "inboundTag": [
-                    "api"
-                ],
-                "outboundTag": "api",
-                "type": "field"
-            },
-            {
-                "ip": [
-                    "geoip:private"
-                ],
-                "outboundTag": "blocked",
-                "type": "field"
-            },
-            {
-                "outboundTag": "blocked",
-                "protocol": [
-                    "bittorrent"
-                ],
-                "type": "field"
-            }
-        ]
-    },
-    "stats": {},
-    "transport": null
+    ]
 }
