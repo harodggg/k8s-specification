@@ -3,4 +3,5 @@ kind: Middleware
 metadata:
   name: nginx-compress
 spec:
-  compress: {}
+  compress: 
+    minResponseBodyBytes: 200
