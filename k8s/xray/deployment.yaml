@@ -27,7 +27,7 @@ spec:
             memory: 150Mi
         volumeMounts: 
              - name: config
-               mountPath: /etc/xray/config.json
+               mountPath: /etc/xray
         
       volumes:
         - name: config 
