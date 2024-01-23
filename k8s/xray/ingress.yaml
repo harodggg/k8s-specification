@@ -1,0 +1,11 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: xray-ingress
+spec:
+  entryPoints:
+  - webtcp
+  routes:
+  - services:
+    - name: xray-service
+      port: 30666

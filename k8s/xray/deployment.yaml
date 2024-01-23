@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xray
+spec:
+  selector:
+    matchLabels:
+      app: xray
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: xray
+    spec:
+      containers:
+      - name: xray
+        image: teddysun/xray:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 30666
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+          limits:
+            cpu: 120m
+            memory: 150Mi
+          volumeMounts: 
+             mountPath: /etc/xray/config.json
+        
+      volumes:
+        - name: config 
+          configMap: 
+             name: xray-config
+      restartPolicy: Always
+        
