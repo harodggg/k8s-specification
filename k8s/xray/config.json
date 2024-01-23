@@ -33,9 +33,9 @@
                 "network": "tcp",
                 "security": "reality",
                 "realitySettings": {
-                    "dest": "www.lovelive-anime.jp:443",
+                    "dest": "www.abe.zone:443",
                     "serverNames": [ 
-                        "www.lovelive-anime.jp" 
+                        "www.abe.zone" 
                     ],
                     "privateKey": "2KZ4uouMKgI8nR-LDJNP1_MHisCJOmKGj9jUjZLncVU",
                     "shortIds": [ 
