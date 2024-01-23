@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nginx-ingress
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`web.abe.zone`)
+      kind: Rule
+      services:
+        - name: nginx-service
+          port: 80
