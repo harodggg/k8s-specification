@@ -1,4 +1,5 @@
 {
+  
     "api": {
         "services": [
             "HandlerService",
@@ -81,7 +82,7 @@
     ],
     "log": {
         "error": "./error.log",
-        "loglevel": "warning"
+        "loglevel": "debug"
     },
     "outbounds": [
         {
