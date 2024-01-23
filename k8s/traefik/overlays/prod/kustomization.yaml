@@ -13,18 +13,18 @@ configMapGenerator:
   literals:
   - name=aliyun-tls
 
-vars:
-  - name: DOMAIN-TLS
-    objref:
-       kind: IngressRoute
-       name: treafik-dashboard
-    fieldref:
-      fieldpath: spec.routes.0.tls.secretName
+# replacements:
+#   - name: DOMAIN-TLS
+#     objref:
+#        kind: IngressRoute
+#        name: treafik-dashboard
+#     fieldref:
+#       fieldpath: spec.routes.0.tls.secretName
       
 
 
 
-bases:
+resources:
  - ../../base
 
 patches:
