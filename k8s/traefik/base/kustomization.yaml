@@ -5,3 +5,4 @@ namespace: treafik-dashboard
 resources:
   - dashboard.yaml 
   - cert.yaml
+  - namespace.yaml
