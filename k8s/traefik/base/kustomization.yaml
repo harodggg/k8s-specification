@@ -6,3 +6,4 @@ resources:
   - dashboard.yaml 
   - cert.yaml
   - namespace.yaml
+  - middleware.yaml

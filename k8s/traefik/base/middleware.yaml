@@ -1,0 +1,29 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: traefik-middleware-compress
+spec:
+  compress: 
+    minResponseBodyBytes: 200
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: known-ips
+spec:
+  ipWhiteList:
+    sourceRange:
+    - 47.242.156.215
+    - 127.0.0.1/32
+--- 
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: traefik-middleware-chain
+spec:
+  chain:
+    middlewares:
+    - name: traefik-middleware-composse
+    - name: known-ips
+    # - name: auth-users
