@@ -4,7 +4,7 @@ metadata:
   name: nginx-ingress
 spec:
   entryPoints:
-    - webtcp
+    - websecure
   routes:
     - match: Host(`web.abe.zone`)
       kind: Rule
