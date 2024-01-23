@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: xray-service
 spec:
+ type: NodePort
  ports:
   - port: 30666
     targetPort: 30666
