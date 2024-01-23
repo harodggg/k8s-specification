@@ -4,7 +4,7 @@ metadata:
   name: xray-ingress
 spec:
   entryPoints:
-  - web
+  - webtcp
   routes:
   - match: HostSNI(`*`)
     services:
