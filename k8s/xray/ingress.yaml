@@ -6,6 +6,7 @@ spec:
   entryPoints:
   - webtcp
   routes:
-  - services:
+  - match: HostSNI(`*`)
+    services:
     - name: xray-service
       port: 30666
