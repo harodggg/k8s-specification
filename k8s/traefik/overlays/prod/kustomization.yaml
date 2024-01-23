@@ -1,0 +1,49 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: treafik-dashboard
+namePrefix: prod-
+nameSuffix: "-001"
+commonAnnotations:
+  oncallPager: 800-555-1212
+commonLabels:
+  app: treafik-dashboard
+
+configMapGenerator:
+- name: domain-tls
+  literals:
+  - name=aliyun-tls
+
+vars:
+  - name: DOMAIN-TLS
+    objref:
+       kind: IngressRoute
+       name: treafik-dashboard
+    fieldref:
+      fieldpath: spec.routes.0.tls.secretName
+      
+
+
+
+bases:
+ - ../../base
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/dnsNames/0
+        value: aliyun.abe.zone
+      - op: replace
+        path: /spec/secretName
+        value: aliyun-tls
+    target:
+      kind: Certificate
+
+  - patch: |-
+      - op: replace
+        path: /spec/routes/0/match
+        value:  Host(`aliyun.abe.zone)`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
+      - op: replace 
+        path: /spec/routes/0/tls/secretName
+        value: aliyun-tls
+    target: 
+      kind: IngressRoute

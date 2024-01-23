@@ -1,12 +1,15 @@
 kind: IngressRoute
 metadata:
-  name: dashboard
+  name: treafik-dashboard
 spec:
   entryPoints:
     - web
+    - websecure
   routes:
     - match: Host(`aliyun.abe.zone`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
       kind: Rule
       services:
         - name: api@internal
           kind: TraefikService
+      tls: 
+          secretName: aliyun-tls
