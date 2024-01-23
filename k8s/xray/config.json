@@ -49,13 +49,13 @@
             "streamSettings": {
                 "network": "tcp",
                 "realitySettings": {
-                    "dest": "web.abe.zone:443",
+                    "dest": "www.tesla.com:443",
                     "maxClient": "",
                     "maxTimediff": 0,
                     "minClient": "",
                     "privateKey": "wPdhlIHQh4UcSJ4D7Rsxm_3vRAWb-N1hM9b4ZVaazVM",
                     "serverNames": [
-                        "web.abe.zone"
+                        "www.tesla.com"
                     ],
                     "settings": {
                         "fingerprint": "firefox",
