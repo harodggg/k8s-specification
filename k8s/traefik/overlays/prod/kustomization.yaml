@@ -1,8 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: treafik-dashboard
-namePrefix: prod-
-nameSuffix: "-001"
+# namePrefix: prod-
+# nameSuffix: "-001"
 commonAnnotations:
   oncallPager: 800-555-1212
 commonLabels:
@@ -41,7 +41,7 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/routes/0/match
-        value:  Host(`aliyun.abe.zone`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
+        value:  Host(`traefik.abe.zone`)
       - op: replace 
         path: /spec/tls/secretName
         value: aliyun-tls
