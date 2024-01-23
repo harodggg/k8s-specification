@@ -81,6 +81,8 @@
         }
     ],
     "log": {
+        "access": "xray.log",
+        "error": "error.log",
         "loglevel": "debug"
     },
     "outbounds": [
