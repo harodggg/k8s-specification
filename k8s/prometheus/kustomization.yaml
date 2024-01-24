@@ -4,6 +4,6 @@ namespace: default
 resources:
   - promethus.yaml
   - servicemonitor.yaml
-  - service.yaml
+  - ingress.yaml
   - serviceaccount.yaml
 #  - ingress.yaml

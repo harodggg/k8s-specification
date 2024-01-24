@@ -9,4 +9,4 @@ spec:
     nodePort: 30333
     protocol: TCP
  selector:
-     app: prometheus
+     app: p
