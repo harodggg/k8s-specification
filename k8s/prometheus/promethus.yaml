@@ -5,6 +5,7 @@ metadata:
   labels:
     app: prometheus
 spec:
+  serviceAccountName: prometheus
   serviceMonitorSelector:
     matchLabels:
       team: sm-team
