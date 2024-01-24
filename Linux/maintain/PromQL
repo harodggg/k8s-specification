@@ -5,4 +5,12 @@
 
 # 2. 样本
 # 3. 指标
-# 4. 
+    - Counter ()_total结尾，http_requests_total
+      - rate(http_requests_total[5m])
+      - topk(10, http_requests_total)
+    - Gauge
+        - delta(cpu_temp_celsius{host="zeus"}[2h])
+        - predict_linear(node_filesystem_free{job="node"}[1h], 4 * 3600)
+    - Histogram
+        - histogram_quantile()
+    - Summary
