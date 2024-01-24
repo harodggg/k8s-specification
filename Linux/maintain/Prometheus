@@ -23,3 +23,6 @@
 9. 开放性强
 
 # https://github.com/prometheus-operator/kube-prometheus/tree/main
+
+Loki & Promtail 详解
+https://github.com/google/cadvisor
