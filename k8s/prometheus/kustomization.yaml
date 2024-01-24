@@ -5,5 +5,5 @@ resources:
   - promethus.yaml
   - servicemonitor.yaml
   - service.yaml
-  - serviceaccount.ayml
+  - serviceaccount.yaml
 #  - ingress.yaml
