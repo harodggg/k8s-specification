@@ -3,7 +3,7 @@ kind: Prometheus
 metadata:
   name: prometheus
   labels:
-    app: prometheus
+    app: p
 spec:
   serviceAccountName: prometheus
   serviceMonitorSelector:
