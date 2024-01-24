@@ -7,7 +7,7 @@ spec:
  ports:
   - port: 9090
     targetPort: 9090
-    nodePort: 33000
+    nodePort: 30333
     protocol: TCP
  selector:
      app: prometheus
