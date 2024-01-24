@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: prometheus-ingress
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`prometheus.abe.zone`)
+      kind: Rule
+      services:
+        - name: prometheus-operated
+          port: 9090
+  tls: {}
