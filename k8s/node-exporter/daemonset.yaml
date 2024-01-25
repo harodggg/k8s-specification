@@ -18,7 +18,7 @@ spec:
       - image: prom/node-exporter
         imagePullPolicy: IfNotPresent
         name: node-exporter
-        command: ["/bin/node_exporter","--collector.processes","--collector.systemd"]
+        command: ["/bin/node_exporter","--collector.tcpstat","--collector.processes","--collector.systemd"]
         ports:
         - containerPort: 9100
           hostPort: 9100

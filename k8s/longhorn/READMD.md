@@ -1,0 +1,12 @@
+# uninstall longhorn
+```bash
+kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v1.1.0/deploy/longhorn.yaml
+kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v1.1.0/uninstall/uninstall.yaml
+
+# 如果 CRD 还在可以强制删除
+for crd in $(kubectl get crd -o jsonpath={.items[*].metadata.name} | tr ' ' '\n' | grep longhorn.rancher.io); do
+  kubectl -n ${NAMESPACE} get $crd -o yaml | sed "s/\- longhorn.rancher.io//g" | kubectl apply -f -
+  kubectl -n ${NAMESPACE} delete $crd --all
+  kubectl delete crd/$crd
+done
+```
