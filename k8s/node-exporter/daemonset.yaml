@@ -23,13 +23,13 @@ spec:
         - containerPort: 9100
           hostPort: 9100
           name: scrape
-          volumeMounts:
-            - mountPath: /var/run/dbus
+        volumeMounts:
+            - mountPath: /var/run/dbus/system_bus_socket
               name: system-dbus-socket
               readOnly: true
       volumes:
       - hostPath:
-          path: /var/run/dbus
+          path: /var/run/dbus/system_bus_socket
         name: system-dbus-socket
       hostNetwork: true
       hostPID: true
