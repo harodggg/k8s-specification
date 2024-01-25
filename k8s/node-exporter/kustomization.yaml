@@ -5,3 +5,4 @@ resources:
   - servicemonitor.yaml
   # - ingress.yaml
   - daemonset.yaml
+  - service.yaml
