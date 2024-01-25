@@ -27,5 +27,4 @@ metadata:
 
 spec:
   curvePreferences:
-    - CurveP521
-    - CurveP384
+    - X25519
