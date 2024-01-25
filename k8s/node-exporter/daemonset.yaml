@@ -10,10 +10,6 @@ spec:
      app: node-exporter
   template:
     metadata:
-      annotations:
-        prometheus.io/scrape: 'true'
-        prometheus.io/port: '9100'
-        prometheus.io/path: 'metrics'
       labels:
         app: node-exporter
       name: node-exporter
