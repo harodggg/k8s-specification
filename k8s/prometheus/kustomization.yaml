@@ -6,4 +6,3 @@ resources:
   - servicemonitor.yaml
   - ingress.yaml
   - serviceaccount.yaml
-#  - ingress.yaml
