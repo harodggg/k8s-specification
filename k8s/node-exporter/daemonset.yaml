@@ -1,11 +1,13 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: node-exporter
+  name: node-exporter-sm
+  labels:
+    app: node-exporter
 spec:
   selector:
     matchLabels:
-     app: node-exporter 
+     app: node-exporter
   template:
     metadata:
       annotations:
