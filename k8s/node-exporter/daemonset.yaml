@@ -14,10 +14,6 @@ spec:
         app: node-exporter
       name: node-exporter
     spec:
-      securityContext:
-        runAsUser: 0
-        runAsGroup: 0
-        fsGroup: 0
       containers:
       - image: prom/node-exporter
         imagePullPolicy: IfNotPresent
@@ -27,5 +23,13 @@ spec:
         - containerPort: 9100
           hostPort: 9100
           name: scrape
+          volumeMounts:
+            - mountPath: /var/run/dbus/system_bus_socket
+              name: system-dbus-socket
+              readOnly: true
+      volumes:
+      - hostPath:
+          path: /var/run/dbus/system_bus_socket
+        name: system-dbus-socket
       hostNetwork: true
       hostPID: true
