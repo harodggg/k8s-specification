@@ -7,7 +7,7 @@ metadata:
 spec:
   namespaceSelector:
     matchNames:
-    - kube-system
+    - default
   selector:
     matchLabels:
       app: node-exporter
