@@ -5,6 +5,10 @@ metadata:
   labels:
     app: node-exporter
 spec:
+  securityContext:
+      runAsUser: 0
+      runAsGroup: 0
+      fsGroup: 0
   selector:
     matchLabels:
      app: node-exporter
