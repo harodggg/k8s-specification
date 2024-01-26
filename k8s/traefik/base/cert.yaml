@@ -3,6 +3,17 @@
    metadata:
      name: treafik-domain
    spec:
+     
+     duration: 2160h # 90d
+     renewBefore: 360h # 15d
+     isCA: false
+     subject:
+      organizations:
+        - abel
+     privateKey:
+      algorithm: ECDSA
+      # encoding: PKCS1
+      size: 256
      dnsNames:
      - aliyun.abe.zone # 要签发证书的域名
      issuerRef:

@@ -6,7 +6,7 @@ namespace: treafik-dashboard
 commonAnnotations:
   oncallPager: 800-555-1212
 commonLabels:
-  app: treafik-dashboard
+  app: traefik-dashboard
 
 configMapGenerator:
 - name: domain-tls
@@ -31,10 +31,10 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/dnsNames/0
-        value: aliyun.abe.zone
+        value: traefik.abe.zone
       - op: replace
         path: /spec/secretName
-        value: aliyun-tls
+        value: traefik-tls
     target:
       kind: Certificate
 
@@ -44,6 +44,6 @@ patches:
         value:  Host(`traefik.abe.zone`)
       - op: replace 
         path: /spec/tls/secretName
-        value: aliyun-tls
+        value: traefik-tls
     target: 
       kind: IngressRoute
