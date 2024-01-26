@@ -9,7 +9,7 @@
      subject:
       countries:
         - CN
-      organizational: 
+      organizations: 
         - abe.zone
       organizationalUnits:
         - traefik
