@@ -7,28 +7,28 @@ metadata:
 spec:
   minVersion: VersionTLS13
 
---- 
-apiVersion: traefik.io/v1alpha1
-kind: TLSOption
-metadata:
-  name: default
-  namespace: default
+# --- 
+# apiVersion: traefik.io/v1alpha1
+# kind: TLSOption
+# metadata:
+#   name: default
+#   namespace: default
 
 
-spec:
-  preferServerCipherSuites: true
-  cipherSuites:
-    - TLS_AES_128_GCM_SHA256
-    - TLS_CHACHA20_POLY1305_SHA256 
----
-apiVersion: traefik.io/v1alpha1
-kind: TLSOption
-metadata:
-  name: default
-  namespace: default
+# spec:
+#   preferServerCipherSuites: true
+#   cipherSuites:
+#     - TLS_AES_128_GCM_SHA256
+#     - TLS_CHACHA20_POLY1305_SHA256 
+# ---
+# apiVersion: traefik.io/v1alpha1
+# kind: TLSOption
+# metadata:
+#   name: default
+#   namespace: default
 
-spec:
-  curvePreferences:
-    - X25519
-    - CurveP521
-    - CurveP384
+# spec:
+#   curvePreferences:
+#     - X25519
+#     - CurveP521
+#     - CurveP384
