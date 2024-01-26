@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: jaeger-ingress
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`jaeger.abe.zone`)
+      kind: Rule
+      services:
+        - name: jaeger-agent
+          port: 80
+  tls: {}
