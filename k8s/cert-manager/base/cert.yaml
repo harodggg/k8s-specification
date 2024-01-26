@@ -6,10 +6,17 @@
      duration: 2160h # 90d
      renewBefore: 360h # 15d
      isCA: true
-     commonName: abel
      subject:
-      organizations:
-        - abel
+      countries:
+        - CN
+      organizational: 
+        - abe.zone
+      organizationalUnits:
+        - traefik
+      streetAddresses:
+        - 1 Demo Loop
+      provinces:
+        - Shanghai
      privateKey:
       algorithm: ECDSA
       # encoding: PKCS1
@@ -19,4 +26,5 @@
      issuerRef:
        kind: ClusterIssuer
        name: letsencrypt-dns01 # 引用 ClusterIssuer，指示采用 dns01 方式进行校验
+       group: cert-manager.io
      secretName: default-tls # 最终签发出来的证书会保存在这个 Secret 里面
