@@ -5,7 +5,7 @@ metadata:
   namespace: default
 
 spec:
-  maxVersion: VersionTLS13
+  minVersion: VersionTLS13
 
 --- 
 apiVersion: traefik.io/v1alpha1
