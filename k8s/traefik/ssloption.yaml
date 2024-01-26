@@ -6,8 +6,7 @@ metadata:
 
 spec:
   minVersion: VersionTLS13
-  maxVersion: VersionTLS13
-
+  
 --- 
 apiVersion: traefik.io/v1alpha1
 kind: TLSOption
