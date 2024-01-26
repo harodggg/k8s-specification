@@ -3,9 +3,19 @@
    metadata:
      name: default-domain
    spec:
+     duration: 2160h # 90d
+     renewBefore: 360h # 15d
+     isCA: false
+     subject:
+      organizations:
+        - abel
+     privateKey:
+      algorithm: ECDSA
+      # encoding: PKCS1
+      size: 256
      dnsNames:
-     - aliyun.abe.zone # 要签发证书的域名
+     - *.abe.zone # 要签发证书的域名
      issuerRef:
        kind: ClusterIssuer
        name: letsencrypt-dns01 # 引用 ClusterIssuer，指示采用 dns01 方式进行校验
-     secretName: aliyun-tls # 最终签发出来的证书会保存在这个 Secret 里面
+     secretName: default-tls # 最终签发出来的证书会保存在这个 Secret 里面

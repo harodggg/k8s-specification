@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: treafik-dashboard
+namespace: traefik-dashboard
 # namePrefix: prod-
 # nameSuffix: "-001"
 commonAnnotations:
@@ -9,9 +9,9 @@ commonLabels:
   app: traefik-dashboard
 
 configMapGenerator:
-- name: domain-tls
+- name: traefik-tls
   literals:
-  - name=aliyun-tls
+  - name=traefik-tls
 
 # replacements:
 #   - name: DOMAIN-TLS
