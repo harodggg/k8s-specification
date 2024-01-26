@@ -6,6 +6,7 @@ metadata:
 
 spec:
   minVersion: VersionTLS13
+  maxVersion: VersionTLS13
 
 --- 
 apiVersion: traefik.io/v1alpha1
@@ -15,6 +16,7 @@ metadata:
   namespace: default
 
 spec:
+  preferServerCipherSuites: true
   cipherSuites:
     - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 ---
