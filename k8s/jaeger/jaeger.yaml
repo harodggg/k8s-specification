@@ -9,6 +9,6 @@ spec:
     - match: Host(`jaeger.abe.zone`)
       kind: Rule
       services:
-        - name: jaeger-agent
+        - name: jaeger-query
           port: 80
   tls: {}
