@@ -16,7 +16,7 @@ spec:
       hostNetwork: true
       containers:
       - name: hysteria2-pod
-        image: tobyxdd/hysteria:latest
+        image: tobyxdd/hysteria:v2.2.4
         imagePullPolicy: IfNotPresent
         command: [ "hysteria","server","--log-level","debug","-c","/app/config/hysteria2-config.yaml"]
         ports:
