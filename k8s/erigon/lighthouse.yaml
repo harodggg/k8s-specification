@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lg-deployment
+spec:
+  selector:
+    matchLabels:
+      app: lg
+  replicas: 1 # 告知 Deployment 运行 1 个与该模板匹配的 Pod
+  template:
+    metadata:
+      labels:
+        app: lg
+    spec:
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+        fsGroup: 0
+
+      containers:
+      - name: lighthouse
+        image: sigp/lighthouse:latest
+        command: ["/usr/local/bin/lighthouse"]
+        args: ["beacon_node","--network","mainnet","--datadir","/data/ethereum","--http","--execution-endpoint","http://erigon-serivce.default.svc.cluster.local:8551","--execution-jwt","/data/jwt/jwt.hex"]
+        resources:
+          requests:
+            cpu: 50m
+            memory: 500Mi
+          limits:
+            cpu: 2000m
+            memory: 4000Mi
+        volumeMounts:
+          - name: config 
+            mountPath: /data/ethereum
+          - name: jwt-hex
+            mountPath: /data/jwt
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: lg-pvc
+        - name: jwt-hex
+          configMap:
+            name: jwt.hex

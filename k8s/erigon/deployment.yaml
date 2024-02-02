@@ -12,13 +12,18 @@ spec:
       labels:
         app: erigon
     spec:
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+        fsGroup: 0
+
       containers:
       - name: erigon
         image: thorax/erigon:v2.57.3
         command: ["/usr/local/bin/erigon"]
-        args: ["--chain","mainnet","--datadir","/data/ethereum"]
+        args: ["--chain","mainnet","--datadir","/data/ethereum","--http", "--http.api=engine,eth,web3,net","--authrpc.addr=0.0.0.0","--authrpc.vhosts='*'","--authrpc.port=8551","--prune=htc","--prune.r.before=11052984"]
         ports:
-        - containerPort: 80
+        - containerPort: 8551
         resources:
           requests:
             cpu: 5m
