@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: erigon-deployment
+spec:
+  selector:
+    matchLabels:
+      app: erigon
+  replicas: 1 # 告知 Deployment 运行 1 个与该模板匹配的 Pod
+  template:
+    metadata:
+      labels:
+        app: erigon
+    spec:
+      containers:
+      - name: erigon
+        image: thorax/erigon:v2.57.3
+        command: ["/usr/local/bin/erigon"]
+        args: ["--chain","mainnet","--datadir","/data/ethereum"]
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 5m
+            memory: 5Mi
+          limits:
+            cpu: 2000m
+            memory: 4000Mi
+        volumeMounts:
+          - name: config 
+            mountPath: /data/ethereum
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: rbd-pvc

@@ -18,6 +18,11 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 30666
+        livenessProbe:
+          tcpSocket: 
+            port: 30666
+          initialDelaySeconds: 15
+          periodSeconds: 10
         resources:
           requests:
             cpu: 5m
