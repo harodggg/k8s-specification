@@ -14,8 +14,14 @@
 - name: Install master
   hosts: master
   tasks:
+    - name: Find ip
+      uri:
+        url: http://ifconfig.me/ip
+        return_content: yes
+      register: ip_response
     - name: Install k3s master 
-      shell: curl -sfL https://get.k3s.io | sh -s - --disable traefik --node-external-ip "{{ hostvars[inventory_hostname].ansible_host }}"
+      shell: curl -sfL https://get.k3s.io | sh -s - --disable traefik --node-external-ip {{ ip_response.content  }}
+      ignore_errors: true 
     - name: query k3s keys
       command: cat /var/lib/rancher/k3s/server/node-token
       register: token_result

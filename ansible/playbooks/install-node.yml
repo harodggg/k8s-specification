@@ -14,8 +14,8 @@
 - name: Install Node
   hosts: node
   vars: 
-    K3S_TOKEN: ""
-    K3S_URL: "https://master-1.abe.zone"
+    K3S_TOKEN: "K10425afd9047f986603391b8e4f0d530dc96844c25fef413929960ce23182badde::server:dde3cf6d76357600311350def96a7c2b"
+    K3S_URL: "https://34.92.213.173"
     nodes: 
       node1:
          node-ip: ""
@@ -24,6 +24,12 @@
          node-ip: ""
          node-external-ip: ""
   tasks:
+    - name: find my ip 
+      uri:
+        url: http://ifconfig.me/ip
+        return_content: yes
+      register: ip_response
+
     - name: Install k3s node
-      shell: curl -sfL https://get.k3s.io | K3S_URL={{ K3S_URL }}:6443 K3S_TOKEN={{ K3S_TOKEN }} sh -
+      shell: curl -sfL https://get.k3s.io | K3S_URL={{ K3S_URL }}:6443 K3S_TOKEN={{ K3S_TOKEN }} sh -s - --node-external-ip {{ ip_response.content }}
 
