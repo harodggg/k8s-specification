@@ -6,6 +6,12 @@ terraform {
         }
     }
 }
+provider "google" {
+    credentials = file("./starlit-cycle-388401-6d88dc72c895.json")
+    project = "starlit-cycle-388401"
+    region  = var.region
+    zone    = var.zone
+}
 
 module "instance" { 
     source = "./modules/instance"
