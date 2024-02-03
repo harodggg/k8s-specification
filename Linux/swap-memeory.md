@@ -1,7 +1,7 @@
 # setting swap memeory
 ```bash
-mkdir swap && cp swap
-sudo dd if=/dev/zero of=swapfile bs=1M count=2048
+mkdir swap && cd swap
+sudo dd if=/dev/zero of=swapfile bs=1M count=5120
 sudo chmod 0600 swapfile
 sudo mkswap swapfile
 sudo swapon swapfile
@@ -17,6 +17,8 @@ sudo swapoff swapfile
 ```
 vim /etc/fstab
 swapfilepath swap swap defaults 0 0
+
+echo "/root/swap/swapfile swap swap defaults 0 0" >> /etc/fstab
 ```
 
 # kernel virtual memeory

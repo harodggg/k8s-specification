@@ -1,0 +1,13 @@
+apiVersion: ceph.rook.io/v1
+kind: CephBlockPool
+metadata:
+  name: espool
+  namespace: rook-ceph # namespace:cluster
+spec:
+  failureDomain: osd
+  replicated:
+    size: 1
+  deviceClass: hdd
+  parameters:
+    pg_num: '512' # create the pool with a pre-configured placement group number
+    pgp_num: '512'
