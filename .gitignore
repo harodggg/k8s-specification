@@ -3,3 +3,4 @@
 *.lock.*
 *.tfstate
 *.backup
+cf_key.txt
