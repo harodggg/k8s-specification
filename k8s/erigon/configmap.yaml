@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: jwt.hex
 data:
- jwt.hex: "0xbeb138f9d924b15ee6dc0376a33ca8a28895ba7464e709a320312deace5209d7"
+ jwt.hex: "0x1cdf7d356f7c0fb5239b29af3fe2e8b347f942ee45440b43b72348603ce3bc86"
