@@ -1,7 +1,7 @@
 # setting swap memeory
 ```bash
 mkdir swap && cd swap
-sudo dd if=/dev/zero of=swapfile bs=1M count=5120
+sudo dd if=/dev/zero of=swapfile bs=1M count=10240
 sudo chmod 0600 swapfile
 sudo mkswap swapfile
 sudo swapon swapfile

@@ -22,6 +22,8 @@
     - name: Install k3s master 
       shell: curl -sfL https://get.k3s.io | sh -s - --disable traefik --node-external-ip {{ ip_response.content  }}
       ignore_errors: true 
+      depends_on: Find ip 
+      
     - name: query k3s keys
       command: cat /var/lib/rancher/k3s/server/node-token
       register: token_result
