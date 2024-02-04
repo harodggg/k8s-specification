@@ -6,15 +6,18 @@ terraform {
     }
   }
 }
-
 provider "cloudflare" {
-  api_token = file("./cf_key.txt")
+  api_token = file(var.key)
 }
 
-resource "cloudflare_record" "test" {
-  zone_id = var.zone
-  name    = "test"
-  value   = "203.0.113.10"
-  type    = "A"
-  proxied = false
+
+module "add_record" { 
+    source = "./modules/add_dns_record"
+
+    key = "./cf_key.txt"
+
+    domain = "blocknode.run"
+    domain_name = "modstest"
+    domain_ip = "1.1.1.1"
+    domain_type = "A"
 }
