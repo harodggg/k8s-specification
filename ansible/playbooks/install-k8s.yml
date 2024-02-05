@@ -10,6 +10,51 @@
 #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
+- name: Install master
+  hosts: master
+  tasks:
+    - name: Find ip
+      uri:
+        url: http://ifconfig.me/ip
+        return_content: yes
+      register: ip_response
+    - name: Install k3s master 
+      shell: curl -sfL https://get.k3s.io | sh -s - --disable traefik --node-external-ip {{ ip_response.content  }}
+      ignore_errors: true 
+      depends_on: Find ip 
 
+    - name: query k3s keys
+      command: cat /var/lib/rancher/k3s/server/node-token
+      register: token_result
+
+    - name: show k3s keys
+      debug: msg="{{ token_result.stdout }}"
+    
+    - name: create k3s master token  file 
+      file:
+        path: /tmp/k3s_token	#指定文件路径
+        owner: root
+        group: root
+        mode: 0640		#指定文件权限
+        state: touch
+    
+    - name: write token to k3s file 
+      shell: echo {{ token_result.stdout }} > /tmp/k3s_token 
+    
+    - name: write ip address 
+      shell: echo {{ ip_response.content }} > /tmp/ip
+    
+    - name: fetch token  
+      fetch: 
+        src: /tmp/k3s_token
+        dest: /tmp/k3s_token
+        flat: yes
+
+    - name: fetch ip 
+      fetch: 
+        src: /tmp/ip
+        dest: /tmp/ip
+        flat: yes
+  
 
 
