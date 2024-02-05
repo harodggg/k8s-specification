@@ -6,6 +6,16 @@ terraform {
     }
   }
 }
+
+terraform {
+  cloud {
+    organization = "haroldtiansheng"
+
+    workspaces {
+      name = "test"
+    }
+  }
+}
 provider "cloudflare" {
   api_token = file(var.key)
 }
