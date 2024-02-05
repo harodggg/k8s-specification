@@ -55,6 +55,46 @@
         src: /tmp/ip
         dest: /tmp/ip
         flat: yes
+- name: Install Node
+  hosts: node
+  strategy: free
+  serial: 1
+  vars: 
+    K3S_TOKEN: "K10425afd9047f986603391b8e4f0d530dc96844c25fef413929960ce23182badde::server:dde3cf6d76357600311350def96a7c2b"
+    K3S_URL: "https://34.92.213.173"
+    nodes: 
+      node1:
+         node-ip: ""
+         node-external-ip: ""
+      node2:
+         node-ip: ""
+         node-external-ip: ""
+  tasks:
+    - name: find my ip 
+      uri:
+        url: http://ifconfig.me/ip
+        return_content: yes
+      register: ip_response
+    
+    - name: read master token
+      shell: cat /tmp/k3s_token 
+      register: file_content
+    
+    - name: read master ip 
+      shell: cat /tmp/ip
+      register: ip_content
+    
+    - name: print master token 
+      debug: 
+        var: file_content.stdout_lines
+
+    - name: print master ip 
+      debug: 
+        var: ip_content.stdout_lines
+
+    - name: Install k3s node
+      shell: curl -sfL https://get.k3s.io | K3S_URL={{ ip_content.stdout_lines }}:6443 K3S_TOKEN={{ file_content.stdout_lines }} sh -s - --node-external-ip {{ ip_response.content }}
+      depends_on: find my ip
   
 
 
