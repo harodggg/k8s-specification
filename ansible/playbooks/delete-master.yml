@@ -17,3 +17,10 @@
     - name: Uninstall k3s
       shell: /usr/local/bin/k3s-uninstall.sh
       ignore_errors: true
+
+- name: Uninstall k3s node 
+  hosts: node
+  tasks:
+    - name: Uninstall k3s
+      shell: /usr/local/bin/k3s-agent-uninstall.sh
+      ignore_errors: true

@@ -11,20 +11,5 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 
-- name: Install master
-  hosts: master
-  tasks:
-    - name: echo "hello world !!!"
-      command: echo "hello world"
-      when:
-      register: result
-    - name: debug
-      debug:
-        msg: ""
-        
-- name: Install node
-  hosts: node
-  tasks:
-    - name: echo "hello world"
-      command: 
+
 
