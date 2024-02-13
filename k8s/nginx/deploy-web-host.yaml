@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 1 # 告知 Deployment 运行 1 个与该模板匹配的 Pod
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 5m
+            memory: 5Mi
+          limits:
+            cpu: 120m
+            memory: 150Mi
+        volumeMounts:
+          - name: web-volume
+            mountPath: /usr/share/nginx/html
+      volumes:
+        - name: web-volume
+          hostPath:
+      # directory location on host
+            path: /root/moban7620
+      # this field is optional
+            type: Directory
