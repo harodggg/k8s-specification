@@ -14,12 +14,12 @@ jobs:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: "hexo"
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2
         with:
           node-version: '20'
+        working-directory: "./hexo"
       - name: Cache NPM dependencies
         uses: actions/cache@v2
         with:
@@ -27,12 +27,16 @@ jobs:
           key: ${{ runner.OS }}-npm-cache
           restore-keys: |
             ${{ runner.OS }}-npm-cache
+        working-directory: "./hexo"
       - name: Install Dependencies
         run: npm install
+        working-directory: "./hexo"
       - name: Build
         run: npm run build
+        working-directory: "./hexo"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+        working-directory: "./hexo"
