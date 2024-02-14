@@ -30,10 +30,10 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-        working-directory: "/hexo"
+        working-directory: "hexo"
       - name: Build
         run: npm run build
-        working-directory: "/hexo"
+        working-directory: "hexo"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
